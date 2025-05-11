@@ -38,5 +38,3 @@ but=tk.Button(root,text="Nhận dạng biển số ",command=anvao)
 entry.pack()
 but.pack()
 root.mainloop()
-#hello
-#hello
