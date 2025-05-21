@@ -20,14 +20,6 @@ def nut_tai_file():
     filepath=filedialog.askopenfilename(initialdir="/home",title="Chọn file ảnh ",filetypes=( ("Tất cả ảnh", "*.jpg *.jpeg *.png *.bmp *.gif"), ("JPEG", "*.jpg *.jpeg"),("PNG", "*.png"),("Bitmap", "*.bmp"),("GIF", "*.gif")))
     global img_tk,bienso
     anh=cv2.imread(filepath)
-    gray_img=cv2.cvtColor(anh,cv2.COLOR_BGR2GRAY)
-    _,binary_img = cv2.threshold(gray_img, 128, 255, cv2.THRESH_BINARY_INV)
-    contours, hierarchy = cv2.findContours(binary_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    for cnt in contours:
-        x, y, w, h = cv2.boundingRect(cnt)
-        if 50<w and 50<h<250:
-            anhcat=anh[x:x+w, y:y+h]
-            cv2.rectangle(anh, (x, y), (x + w, y + h), (0, 255, 0), 2)
     reader = easyocr.Reader(['en'])
     result = reader.readtext(anh)
     for bbox, text, conf in result:
