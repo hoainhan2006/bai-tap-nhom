@@ -34,6 +34,5 @@ def nut_tai_file():
 button=tk.Button(root,text="Tải ảnh",command=nut_tai_file)
 button.pack()
 root.mainloop()
-#hello
 
 
